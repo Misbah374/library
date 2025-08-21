@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Author</p>
+    <input type="text" id="searchAuthor" onkeyup="searchAuthor()"></input>
+    <p>Book</p>
+    <input type="text" id="searchBook" onkeyup="searchBook()"></input>
+    <button onclick="allBooks()">All books in The Library</button>
+</body>
+<script>
+    const data = [
+        {book: "Fahrenhiet451",author:"Ray Bradbury",pages:256},
+        {book: "Let Us C",author:"Yashawant Kanetkar",pages:242},
+        {book:"A brave new world",author:"Aldous Huxley",pages:198}
+    ]
+    const searchAuthor = () => {
+        const search = document.getElementById('searchAuthor').value.toLowerCase();
+        for(let i=0;i<data.length;i++){
+            if(search===data[i].author.toLowerCase()){
+                console.log(data[i].book);
+                console.log(data[i].author);
+                console.log(data[i].pages);
+            } 
+        }
+    }
+    const searchBook = () => {
+        const search = document.getElementById('searchBook').value.toLowerCase();
+        for(let i=0;i<data.length;i++){
+            if(search===data[i].book.toLowerCase()){
+                const {book, author, pages} = data[i];
+                console.log(book);
+                console.log(author);
+                console.log(pages);
+            } 
+        }
+    }
+    const allBooks = () => {
+        for(let i=0;i<data.length;i++){
+            console.log(data[i]);
+        }
+    }
+    //console.log(typeof(data));
+    //console.log(data[1].book);
+</script>
+</html>
